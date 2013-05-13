@@ -67,10 +67,6 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
     $this->templateCode = $this->cObj->fileResource($this->conf['templateFile']);
 			// globally substituted markers, fonts and colors.
 		$splitMark = md5(microtime());
-		$globalMarkerArray=array();
-		
-     // Substitute Global Marker Array
-    $this->templateCode= $this->cObj->substituteMarkerArray($this->templateCode, $globalMarkerArray);
 
 	
 			// TYpoLink
@@ -165,10 +161,6 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 
 		$wrappedSubpartArray['###LINK###']=array('<a href="'.htmlspecialchars($url).'">','</a>');
 
-
-    		// Substitute Global Marker Array
-		
-		$this->templateCode= $this->cObj->substituteMarkerArray($this->templateCode, $globalMarkerArray);
 		
 		
 		// code inserted to use free Captcha
@@ -317,6 +309,8 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 	function sendTip($tipData,$url)	{
 			// Get template
 		$subpart = $this->cObj->getSubpart($this->templateCode,'###TEMPLATE_EMAIL###');
+
+    $markerArray=array();
 
 			// Set markers
 		$markerArray['###MESSAGE###']=htmlspecialchars($tipData['message']);
