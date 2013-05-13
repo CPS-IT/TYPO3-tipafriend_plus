@@ -1,0 +1,11 @@
+includeLibs.ts_tipafriend_plus = EXT:tipafriend_plus/pi1/class.tx_tipafriendplus_pi1.php
+
+page.includeCSS.tipafriend_plus = EXT:tipafriend_plus/res/tipafriend_plus.css
+
+plugin.tx_tipafriendplus_pi1 {
+  userFunc = tx_tipafriendplus_pi1->main
+  templateFile = {$plugin.tipafriend_plus.file.templateFile}
+  typolink.parameter = {$plugin.tipafriend_plus.PIDtipForm}
+  htmlMail = {$plugin.tipafriend_plus.htmlMail}
+  typolink.ATagParams = {$plugin.tipafriend_plus.ATagParams}
+}

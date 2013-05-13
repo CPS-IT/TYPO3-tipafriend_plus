@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<TITLE>Tip-a-Friend example template</TITLE>
+</head>
+
+<body>
+
+<br>
+<br>
+<br>
+<H1>Tip-a-Friend</H1>
+<h2>EXAMPLE</h2>
+
+
+<br>
+<br>
+<br>
+<pre>
+<strong>Global markers, as set up in TypoScript:</strong>
+These are substituted throughout the whole template.
+
+<em>Markers:</em>
+GW1B / GW1E
+GW2B / GW2E
+GW3B / GW3E
+
+GC1
+GC2
+GC3
+GC4
+</pre>
+
+
+
+<BR><BR><BR><BR><HR><BR><BR><BR>
+<h3>TEMPLATE_TIPFORM</h3>
+<em>This is the template for the form where the user enters the email addresse of the recipient.</em>
+<br>
+<br>
+<br>
+<br>
+<!-- ###TEMPLATE_TIPFORM### begin
+	This is the template for the form where the user enters the email addresse of the recipient.
+-->
+
+<div class="tx_tipafriend">
+<form action="###FORM_URL###" method="POST">
+
+<div class="tx_tipafriend_url"><h1 class="csc-firstHeader">###TAF_TITLE###</h1>
+###TAF_LABEL_PATH###<a href="###URL###" target="_blank">###URL_DISPLAY###</a>
+</div>
+
+<!--###ERROR_MSG### this subpart is removed if the form has no errors! -->
+<div class="tx_tipafriend_error_box">
+<div class="tx_tipafriend_error_header">###TAF_LABEL_ERROR###</div>
+<div class="tx_tipafriend_error_text">###TAF_ERROR_EXPL###</div>
+</div>
+<!--###ERROR_MSG###-->
+
+
+<div class="tx_tipafriend_formfield">
+<label for="tx_tipafriend_name">###TAF_LABEL_NAME###</label>
+<input type="text" size="30" name="TIPFORM[name]" id="tx_tipafriend_name" value="###YOUR_NAME###" />
+</div>
+
+<div class="tx_tipafriend_formfield">
+<label for="tx_tipafriend_email">###TAF_LABEL_EMAIL###</label>
+<input type="text" size="30" name="TIPFORM[email]" id="tx_tipafriend_email" value="###YOUR_EMAIL###" />
+</div>
+
+<div class="tx_tipafriend_formfield">
+<label for="tx_tipafriend_recipient">###TAF_LABEL_EMAIL_RECIPENT###</label>
+<input type="text" size=30 name="TIPFORM[recipient]" id="tx_tipafriend_recipient" value="###RECIPIENT###" />
+</div>
+
+<div class="tx_tipafriend_formfield">
+<label for="tx_tipafriend_message">###TAF_LABEL_MESSAGE###&nbsp;&nbsp;&nbsp;</label>
+<textarea cols=30 rows=4 name="TIPFORM[message]" id="tx_tipafriend_message">###MESSAGE###</textarea>
+</div>
+<!--###HTML_INSERT###-->
+<div class="tx_tipafriend_formfield">
+<label for="tx_tipafriend_html" class="tx_tipafriend_html">###TAF_LABEL_HTML###&nbsp;&nbsp;&nbsp;</label>
+<input type="checkbox" name="TIPFORM[html_message]" value="1" ###HTML_MESSAGE### id="tx_tipafriend_html">
+</div>
+<!--###HTML_INSERT###-->
+
+<!--###CAPTCHA_INSERT### this subpart is removed if CAPTCHA is not enabled! -->
+<div class="tx_tipafriend_formfield">
+<label for="tx_tipafriend_pi1_captcha_response">###FORM_CAPTCHA_RESPONSE###:&nbsp;*</label>
+<div class="tx_tipafriend_codetext">###SR_FREECAP_NOTICE### ###SR_FREECAP_CANT_READ###<br />
+###SR_FREECAP_IMAGE###<br />
+<input type="text" size="15" id="tx_tipafriend_pi1_captcha_response" name="TIPFORM[captcha_response]" title="###SR_FREECAP_NOTICE###" value="">
+</div>
+</div>
+<!--###CAPTCHA_INSERT###-->
+
+<div class="tx_tipafriend_formfield">
+<label for="tx_tipafriend_text">&nbsp;</label>
+<div class="tx_tipafriend_text">###TAF_LABEL_MUST###</div>
+</div>
+
+<div class="tx_tipafriend_formfield">
+<label for="tx_tipafriend_button">&nbsp;</label>
+<input type="submit" name="submit" value="###TAF_LABEL_SEND###" id="tx_tipafriend_button">
+</div>
+
+<div class="tx_tipafriend_formfield">
+<label for="tx_tipafriend_werbemail">&nbsp;</label>
+<div class="tx_tipafriend_werbemail">###TAF_DISCLAIMER###</div>
+<div class="clear"></div>
+</div>
+
+<input type="hidden" name="tipUrl" value="###URL_SPECIALCHARS###">
+<input type="hidden" name="sendTip" value="1">
+
+</form>
+</div>
+
+<!-- ###TEMPLATE_TIPFORM### end -->
+
+
+
+<BR><BR><BR><BR><HR><BR><BR><BR>
+<h3>TEMPLATE_TIPFORM_SENT</h3>
+<em>This is the template for the 'is-sent' display.</em>
+<br>
+<br>
+<br>
+<br>
+<!-- ###TEMPLATE_TIPFORM_SENT### begin
+	This is the template for the 'is-sent' display.
+-->
+<div class="tx_tipafriend"><h1 class="csc-firstHeader">###TAF_TITLE###</h1>
+
+###TAF_CONFIRMATION### ###RECIPIENT###
+<br>
+<br>
+<!--###LINK###-->###TAF_LABEL_BACK###<!--###LINK###-->
+</div>
+
+<!-- ###TEMPLATE_TIPFORM_SENT### end -->
+
+
+
+
+<BR><BR><BR><BR><HR><BR><BR><BR>
+<h3>TEMPLATE_TIPLINK</h3>
+<em>This is the template for the link to the tip-page</em>
+<br>
+<br>
+<br>
+<br>
+<!-- ###TEMPLATE_TIPLINK### begin
+	This is the template for the Link on the Pages
+-->
+<div class="tiplink"><!--###LINK###-->###TAF_LINK###<!--###LINK###--></div>
+
+<!-- ###TEMPLATE_TIPLINK### end -->
+
+
+
+
+
+<BR><BR><BR><BR><HR><BR><BR><BR>
+<h3>TEMPLATE_EMAIL</h3>
+<em>
+Template for the plain link notification email.
+First line is used as subject for the mail.<br>
+</em><br>
+<br>
+<br>
+<pre>
+<!-- ###TEMPLATE_EMAIL### begin
+	Template for the plain link notification email.
+	First line is used as subject for the mail.
+-->
+
+###TAF_MAIL_SUBJECT###
+
+###YOUR_NAME### (###YOUR_EMAIL###)
+
+###TAF_MAIL_LINK###
+
+###URL###
+
+
+###TAF_MAIL_MESSAGE###
+
+###MESSAGE###
+
+
+###TAF_MAIL_FOOTER###
+
+
+<!-- ###TEMPLATE_EMAIL### end -->
+</pre>
+
+</BODY>
+</HTML>

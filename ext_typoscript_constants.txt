@@ -1,0 +1,10 @@
+plugin.tipafriend_plus {
+    # cat=plugin.tipafriend_plus/file; type=file[html,htm,tmpl,txt]; label= Template File: HTML-template file for display of the Tip-a-Friend form
+  file.templateFile = EXT:tipafriend_plus/pi1/tipafriend_plus_css.tmpl
+    # cat=plugin.tipafriend_plus//; type=int+; label= PID for the Tip-form Page.
+  PIDtipForm = 0
+    # cat=plugin.tipafriend_plus/enable; type=boolean; label= Send page as HTML: If set, the mail is sent as an HTML mail.
+  htmlMail = 0
+  	# cat=plugin.tipafriend_plus/; type=string; label=Link ATagParams: Set additional parameter for the link
+	ATagParams = class="tx_tipafriend_tiplink"
+}
