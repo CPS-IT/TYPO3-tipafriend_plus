@@ -125,7 +125,7 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 		$tipData = t3lib_div::_GP('TIPFORM');
 		$tipData['recipient'] = $this->getRecipients($tipData['recipient']);
 		list($tipData['email']) = explode(',',$this->getRecipients($tipData['email']));
-		$url = t3lib_div::_GP('tipUrl');
+		$url = htmlspecialchars(strip_tags(t3lib_div::_GP('tipUrl')));
 
 			// Preparing markers
 		$wrappedSubpartArray=array();
