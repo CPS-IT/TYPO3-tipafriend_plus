@@ -55,9 +55,29 @@
             <label index="form_captcha_response">Code</label>
         </languageKey>
         <languageKey index="no" type="array">
-        </languageKey>
+        </languageKey> 
         <languageKey index="it" type="array">
-        </languageKey>
+             <label index="error">Errore!</label>
+             <label index="error_expl">Non hai riempito tutti i campi obbligatori nel modulo o l'indirizzo email non e' valido!</label>
+             <label index="name">Nome e cognome: *</label>
+             <label index="email">Il tuo email: *</label>
+             <label index="title">Stai inviando questo link a un indirizzo email di un conoscente.</label>
+             <label index="path">La pagina che desideri segnalare e' la seguente:</label>
+             <label index="email_recipent">Email del destinatario: *</label>
+             <label index="message">Messaggio</label>
+             <label index="html">messaggio HTML:</label>
+             <label index="must">i campi con * sono obbligatori!</label>
+             <label index="send">Invia</label>
+             <label index="disclaimer"></label>
+             <label index="confirmation">Messaggio inoltrato a:</label>
+             <label index="back">Pagina precedente</label>
+             <label index="mail_subject">Consiglio: verifica questi campi</label>
+             <label index="mail_message">Messaggio:</label>
+             <label index="mail_link">desidera che tu dia uno sguardo a questa pagina:</label>
+             <label index="mail_footer">Cordiali saluti</label>
+             <label index="link">Segnala la pagina...</label>
+             <label index="form_captcha_response">Codice</label>
+        </languageKey> 
         <languageKey index="fr" type="array">
         </languageKey>
         <languageKey index="es" type="array">
