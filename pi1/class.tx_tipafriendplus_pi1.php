@@ -47,39 +47,21 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 	 * @param	array		$conf: The PlugIn configuration
 	 * @return	The content that is displayed on the website
 	 */
-	function main_old($content,$conf)	{
-		$this->conf=$conf;
-		$this->pi_setPiVarDefaults();
-		$this->pi_loadLL();
-		
 
-	$var = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tipafriend_plus.']['PIDtipForm'];
-	$html = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tipafriend_plus.']['htmlmail'];
-
-		$content=$var.'
-			Hallo
-		'.$html;
-	
-		return $content;
-	}
-	
-		function main($content,$conf)	{
+	 function main($content,$conf)	{
 		
 	// code inserted to use free Captcha
 		if (t3lib_extMgm::isLoaded('sr_freecap') ) {
 	      require_once(t3lib_extMgm::extPath('sr_freecap').'pi2/class.tx_srfreecap_pi2.php');
 	      $this->freeCap = t3lib_div::makeInstance('tx_srfreecap_pi2');
     }
-
 	// code inserted to use free Captcha
+    
+    $this->conf = $conf;
     $this->pi_initPIflexForm();	 
 	  $this->pi_loadLL();
 			
-		$this->conf = $conf;
-
 		$this->config['code'] = $this->cObj->stdWrap($this->conf['code'],$this->conf['code.']);
-
-//$tmpl_file = $GLOBALS['TSFE']->tmpl->setup['plugin.']['tipafriend_plus.']['templateFile'];
 
 			// template is read.
     $this->templateCode = $this->cObj->fileResource($this->conf['templateFile']);
@@ -232,8 +214,16 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 
 			$markerArray['###MESSAGE###']=htmlspecialchars($tipData['message']);
 			$markerArray['###RECIPIENT###']=htmlspecialchars($tipData['recipient']);
-			$markerArray['###YOUR_EMAIL###']=htmlspecialchars($tipData['email']);
-			$markerArray['###YOUR_NAME###']=htmlspecialchars($tipData['name']);
+			
+			// Pre-fill form data if FE user in logged in
+      if (!$this->postvars && $GLOBALS['TSFE']->loginUser) {
+            $markerArray['###YOUR_EMAIL###'] = $GLOBALS['TSFE']->fe_user->user['email'];
+            $markerArray['###YOUR_NAME###'] = $GLOBALS['TSFE']->fe_user->user['name'];
+      } else {
+            $markerArray['###YOUR_EMAIL###']=htmlspecialchars($tipData['email']);
+            $markerArray['###YOUR_NAME###']=htmlspecialchars($tipData['name']);
+      } 
+      
 			$markerArray['###HTML_MESSAGE###']=$tipData['html_message'] ? 'checked' : '';
 			$markerArray['###CAPTCHA_HTML###']=$captchaHTMLoutput;
 
@@ -418,21 +408,9 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
     $markerArray['###TAF_LINK###']= $this->pi_getLL('link');
 		
 		
-
-			// Substitute
+		// Substitute
 		$content= $this->cObj->substituteMarkerArrayCached($subpart,$markerArray,array(),$wrappedSubpartArray);
     return $content;
-	}
-
-
-
-
-
-
-	function getCaptchaElements()	{
-		$code = substr(md5(uniqid()),0,10);
-
-		return array($code,$code);
 	}
 	
 	
