@@ -3,7 +3,7 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "tipafriend_plus".
  *
- * Auto generated 13-05-2013 20:11
+ * Auto generated 13-05-2013 20:20
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'description' => 'Send a tip (link to typo3-page) to somebody. Based on Tip-A-Friend.',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '0.1.2',
+	'version' => '0.1.3',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
@@ -34,6 +34,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'CGLcompliance_note' => '',
 	'constraints' => array(
 		'depends' => array(
+			'php' => '4.0.0-0.0.0',
 		),
 		'conflicts' => array(
 		),
