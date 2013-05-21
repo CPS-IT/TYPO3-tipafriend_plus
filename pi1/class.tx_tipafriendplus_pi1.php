@@ -300,16 +300,10 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 	 * @return	[type]		...
 	 */
 	function getRecipients($emails)	{
-		$emailArr = split('[, ;]',$emails);
-		reset($emailArr);
-		$listArr=array();
-		while(list(,$email)=each($emailArr))	{
-			$email = trim($email);
-			if ($email && t3lib_div::validEmail($email))	{
-				$listArr[] = $email;
-			}
-		}
-		return implode(',',$listArr);
+		// Prevent sending this recommendation to multiple recipients
+		$emailArr = preg_split('/[,; ]/', $emails);
+
+		return $emailArr[0];
 	}
 
 

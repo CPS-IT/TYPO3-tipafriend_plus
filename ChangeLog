@@ -1,7 +1,7 @@
-(add new changes on top of this file)
 2013-05-21	Nicole Cordes <cordes@cps-it.de>
 
 	* Added tipHash as security parameter to avoid XSS on links
+	* Fixed sending the recommendation to multiple receivers
 
 07-06-05   <>
 
