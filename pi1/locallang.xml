@@ -9,6 +9,7 @@
     </meta>
     <data type="array">
         <languageKey index="default" type="array">
+			<label index="no_valid_url">No valid url was given.</label>
              <label index="error">Error!</label>
              <label index="error_expl">You didn't fill in all required fields or the email addresses was not valid!</label>
              <label index="name">Your Name: *</label>
@@ -33,6 +34,7 @@
         <languageKey index="dk" type="array">
         </languageKey>
         <languageKey index="de" type="array">
+			<label index="no_valid_url">Es wurde keine gültige URL übergeben.</label>
             <label index="error">Fehler!</label>
             <label index="error_expl">Sie haben nicht alle benötigten Felder ausgefüllt. Die mit einem * gekennzeichnete Felder müssen ausgefüllt werden!</label>
             <label index="name">Ihr Name: *</label>
@@ -55,7 +57,7 @@
             <label index="form_captcha_response">Code</label>
         </languageKey>
         <languageKey index="no" type="array">
-        </languageKey> 
+        </languageKey>
         <languageKey index="it" type="array">
              <label index="error">Errore!</label>
              <label index="error_expl">Non hai riempito tutti i campi obbligatori nel modulo o l'indirizzo email non e' valido!</label>
@@ -77,7 +79,7 @@
              <label index="mail_footer">Cordiali saluti</label>
              <label index="link">Segnala la pagina...</label>
              <label index="form_captcha_response">Codice</label>
-        </languageKey> 
+        </languageKey>
         <languageKey index="fr" type="array">
         </languageKey>
         <languageKey index="es" type="array">
