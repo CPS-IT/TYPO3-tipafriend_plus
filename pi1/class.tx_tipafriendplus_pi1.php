@@ -134,7 +134,7 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 			$tipData = t3lib_div::_GP('TIPFORM');
 			$tipData['recipient'] = $this->getRecipients($tipData['recipient']);
 			list($tipData['email']) = explode(',',$this->getRecipients($tipData['email']));
-			$url = htmlspecialchars(strip_tags($tipUrl));
+			$url = strip_tags($tipUrl);
 
 				// Preparing markers
 			$wrappedSubpartArray=array();
@@ -146,6 +146,11 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 			$markerArray['###URL_ENCODED###']=rawurlencode($url);
 			$markerArray['###URL_SPECIALCHARS###']=htmlspecialchars($url);
 			$markerArray['###URL_DISPLAY###']=htmlspecialchars(strlen($url)>70 ? t3lib_div::fixed_lgd($url,30).t3lib_div::fixed_lgd($url,-30) : $url);
+
+			$markerArray['###HASH###']=t3lib_div::hmac($url, $this->hmacSalt);
+			$markerArray['###HASH_ENCODED###']=t3lib_div::hmac(rawurlencode($url), $this->hmacSalt);
+			// Because htmlspecialchared urls are resolved correctly (browsers convert the link themselves) we just need the normal hash
+			$markerArray['###HASH_SPECIALCHARS###']=t3lib_div::hmac($url, $this->hmacSalt);
 
 		$markerArray['###TAF_LABEL_ERROR###']=$this->pi_getLL('error');
 		$markerArray['###TAF_ERROR_EXPL###']=$this->pi_getLL('error_expl');

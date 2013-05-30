@@ -1,3 +1,7 @@
+2013-05-30	Nicole Cordes <cordes@cps-it.de>
+
+	* Added tipHash marker in form template for different url encoding methods
+
 2013-05-21	Nicole Cordes <cordes@cps-it.de>
 
 	* Added tipHash as security parameter to avoid XSS on links
