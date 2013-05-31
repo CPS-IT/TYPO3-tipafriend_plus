@@ -1,110 +1,106 @@
 <?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
 <T3DataStructure>
-<meta>
-       <langDisable>1</langDisable> 
-</meta>
- <sheets>
-  <sDEF>
-   <ROOT>
-    <TCEforms>
-	   <sheetTitle>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_common_sheet</sheetTitle>
-	</TCEforms>
-    <type>array</type>
-    <el>
-    <code_selector>
-	   <TCEforms>	
-		<label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_code</label>
-						<config>
-							<type>select</type>
-							<items type="array">
-								<numIndex index="0" type="array">
-									<numIndex index="0">TIPFORM</numIndex>
-									<numIndex index="1">TIPFORM</numIndex>
-								</numIndex>
-							    <numIndex index="1" type="array">
-									<numIndex index="0">TIPLINK</numIndex>
-								    <numIndex index="1">TIPLINK</numIndex>
-								</numIndex>
-							</items>	
-						</config>
-	  </TCEforms>
-	</code_selector>	  
-    <checkbox_html>
-	<TCEforms>
-	  <label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_html_mail</label>
-	  <config>
-	    <type>check</type>
-	  </config>
-	</TCEforms>
-    </checkbox_html>
-    <disclaimer_text>
-	  <TCEforms>
-	   <label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_disclaimer</label>
-	   <config>
-	     <type>text</type>
-	     <size>24</size>
-	     <rows>4</rows>
-	   </config>
-	  </TCEforms>
-    </disclaimer_text>
-    </el>
-   </ROOT>
-  </sDEF>
-  <sEmail>
-   <ROOT>
-    <TCEforms>
-	    <sheetTitle>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_mail_sheet</sheetTitle>
-	 </TCEforms>
-     <type>array</type>
-     <el>
-     <email_subject>
-      <TCEforms>
-	   <label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_mail_subject</label>
-	   <config>
-	     <type>input</type>
-	     <size>24</size>
-	     <default></default>
-	   </config>
-	  </TCEforms>
-     </email_subject>
-     <email_link_text>
-      <TCEforms>
-	   <label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_mail_link_text</label>
-	   <config>
-	     <type>text</type>
-	     <cols>24</cols>
-	     <rows>4</rows>
-	     <default></default>
-	   </config>
-	  </TCEforms>
-     </email_link_text>
-     <email_message_text>
-      <TCEforms>
-	   <label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_mail_message_text</label>
-	   <config>
-	     <type>text</type>
-	     <cols>24</cols>
-	     <rows>4</rows>
-	     <default></default>
-	   </config>
-	  </TCEforms>
-     </email_message_text>
-     <email_footer_text>
-      <TCEforms>
-	   <label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_mail_footer</label>
-	   <config>
-	     <type>text</type>
-	     <cols>24</cols>
-	     <rows>4</rows>
-	     <default></default>
-	   </config>
-	  </TCEforms>
-     </email_footer_text>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_common_sheet</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<code_selector>
+						<TCEforms>
+							<label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_code</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">TIPFORM</numIndex>
+										<numIndex index="1">TIPFORM</numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">TIPLINK</numIndex>
+										<numIndex index="1">TIPLINK</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</code_selector>
+					<checkbox_html>
+						<TCEforms>
+							<label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_html_mail</label>
+							<config>
+								<type>check</type>
+							</config>
+						</TCEforms>
+					</checkbox_html>
+					<disclaimer_text>
+						<TCEforms>
+							<label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_disclaimer</label>
+							<config>
+								<type>text</type>
+								<size>24</size>
+								<rows>4</rows>
+							</config>
+						</TCEforms>
+					</disclaimer_text>
+				</el>
+			</ROOT>
+		</sDEF>
+		<sEmail>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_mail_sheet</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<email_subject>
+						<TCEforms>
+							<label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_mail_subject</label>
+							<config>
+								<type>input</type>
+								<size>24</size>
+							</config>
+						</TCEforms>
+					</email_subject>
+					<email_link_text>
+						<TCEforms>
+							<label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_mail_link_text</label>
+							<config>
+								<type>text</type>
+								<cols>24</cols>
+								<rows>4</rows>
+							</config>
+						</TCEforms>
+					</email_link_text>
+					<email_message_text>
+						<TCEforms>
+							<label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_mail_message_text</label>
+							<config>
+								<type>text</type>
+								<cols>24</cols>
+								<rows>4</rows>
+							</config>
+						</TCEforms>
+					</email_message_text>
+					<email_footer_text>
+						<TCEforms>
+							<label>LLL:EXT:tipafriend_plus/locallang_tca.xml:label_mail_footer</label>
+							<config>
+								<type>text</type>
+								<cols>24</cols>
+								<rows>4</rows>
+							</config>
+						</TCEforms>
+					</email_footer_text>
 
-    
-     </el>
-   </ROOT>
-  </sEmail>
- </sheets>
+
+				</el>
+			</ROOT>
+		</sEmail>
+	</sheets>
 </T3DataStructure>
 
