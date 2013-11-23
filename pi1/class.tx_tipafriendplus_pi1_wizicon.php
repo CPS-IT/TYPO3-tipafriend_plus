@@ -39,30 +39,14 @@ class tx_tipafriendplus_pi1_wizicon {
 	 * @return array Modified array with wizard items
 	 */
 	function proc($wizardItems) {
-		global $LANG;
-
-		$LL = $this->includeLocalLang();
-
 		$wizardItems['plugins_tx_tipafriendplus_pi1'] = array(
 			'icon' => t3lib_extMgm::extRelPath('tipafriend_plus') . 'pi1/ce_wiz.gif',
-			'title' => $LANG->getLLL('pi1_title', $LL),
-			'description' => $LANG->getLLL('pi1_plus_wiz_description', $LL),
+			'title' => $GLOBALS['LANG']->sL('LLL:EXT:tipafriend_plus/locallang.xml:pi1_title'),
+			'description' => $GLOBALS['LANG']->sL('LLL:EXT:tipafriend_plus/locallang.xml:pi1_plus_wiz_description'),
 			'params' => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=tipafriend_plus_pi1'
 		);
 
 		return $wizardItems;
-	}
-
-	/**
-	 * Reads the [extDir]/locallang.xml and returns the $LOCAL_LANG array found in that file.
-	 *
-	 * @return array The array with language labels
-	 */
-	function includeLocalLang() {
-		$llFile = t3lib_extMgm::extPath('tipafriend_plus') . 'locallang.xml';
-		$LOCAL_LANG = t3lib_div::readLLXMLfile($llFile, $GLOBALS['LANG']->lang);
-
-		return $LOCAL_LANG;
 	}
 }
 
