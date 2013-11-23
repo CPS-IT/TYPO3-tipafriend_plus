@@ -36,26 +36,26 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 	 *
 	 * @var string
 	 */
-	protected $prefixId = 'tx_tipafriendplus_pi1';
+	public $prefixId = 'tx_tipafriendplus_pi1';
 
 	/**
 	 * Path to this script relative to the extension dir
 	 *
 	 * @var string
 	 */
-	protected $scriptRelPath = 'pi1/class.tx_tipafriendplus_pi1.php';
+	public $scriptRelPath = 'pi1/class.tx_tipafriendplus_pi1.php';
 
 	/**
 	 * The extension key
 	 *
 	 * @var string
 	 */
-	protected $extKey = 'tipafriend_plus';
+	public $extKey = 'tipafriend_plus';
 
 	/**
 	 * @var boolean
 	 */
-	protected $pi_checkCHash = TRUE;
+	public $pi_checkCHash = TRUE;
 
 	/**
 	 * @var array
