@@ -398,39 +398,33 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 		// Substitute in template
 		$content = $this->cObj->substituteMarkerArrayCached($subpart, $markerArray);
 
-		// Set subject, conten and headers
-		$headers = array();
-		$headers[] = 'FROM: ' . $tipData['name'] . ' <' . $tipData['email'] . '>';
-
 		// If htmlmail lib is included, then generate a nice HTML-email
 		if ($this->conf['htmlmail'] || $tipData['html_message']) {
-			$Typo3_htmlmail = t3lib_div::makeInstance('t3lib_htmlmail');
-			list($subject, $plain_message) = explode(chr(10), trim($content), 2);
-			$Typo3_htmlmail->start();
-			$Typo3_htmlmail->useBase64();
+			list($subject, $plainMessage) = array_map('trim', explode(chr(10), trim($content), 2));
+			$searchArray = array(
+				$tipData['email'],
+				$url
+			);
+			$replaceArray = array(
+				'<a href="mailto:' . $tipData['email'] . '">' . $tipData['email'] . '</a>',
+				'<a href="' . $url . '">' . $url . '</a>'
+			);
+			$htmlMessage = nl2br(str_replace($searchArray, $replaceArray, $plainMessage));
+			$htmlMail = t3lib_div::makeInstance('t3lib_mail_Message');
+			$htmlMail->setTo($tipData['recipient'])
+				->setFrom($tipData['email'], $tipData['name'])
+				->setReplyTo($tipData['email'], $tipData['name'])
+				->setReturnPath($tipData['email'])
+				->setPriority(3)
+				->setSubject($subject)
+				->addPart($htmlMessage, 'text/html')
+				->addPart($plainMessage, 'text/plain')
+				->send();
 
-			$Typo3_htmlmail->subject = $subject;
-			$Typo3_htmlmail->from_email = $tipData['email'];
-			$Typo3_htmlmail->from_name = $tipData['name'];
-			$Typo3_htmlmail->replyto_email = $tipData['email'];
-			$Typo3_htmlmail->replyto_name = $tipData['name'];
-			$Typo3_htmlmail->organisation = '';
-			$Typo3_htmlmail->priority = 3;
-
-			// This will fail if the url is password protected!
-			$Typo3_htmlmail->addHTML($url);
-			$Typo3_htmlmail->addPlain($plain_message);
-
-			$Typo3_htmlmail->setHeaders();
-			$Typo3_htmlmail->setContent();
-			$Typo3_htmlmail->setRecipient($tipData['recipient']);
-
-			//			debug($Typo3_htmlmail->theParts);
-			$Typo3_htmlmail->sendtheMail();
 		} else { // Plain mail:
 			// Sending mail:
-			$plain_message = trim($content);
-			$this->cObj->sendNotifyEmail($plain_message, $tipData['recipient'], '', $tipData['email'], $tipData['name']);
+			$plainMessage = trim($content);
+			$this->cObj->sendNotifyEmail($plainMessage, $tipData['recipient'], '', $tipData['email'], $tipData['name']);
 		}
 	}
 
