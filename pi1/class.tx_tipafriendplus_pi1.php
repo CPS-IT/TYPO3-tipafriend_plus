@@ -327,11 +327,10 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 		if (
 			$url &&
 			$ret &&
-			is_object($this->freeCap) &&
 			trim($tipData['name']) &&
 			$tipData['email'] &&
 			$tipData['recipient'] &&
-			($this->freeCap->checkWord($tipData['captcha_response']))
+			(!is_object($this->freeCap) || $this->freeCap->checkWord($tipData['captcha_response']))
 
 		) {
 			return TRUE;
