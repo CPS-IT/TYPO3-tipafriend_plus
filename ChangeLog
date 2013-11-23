@@ -1,12 +1,8 @@
-2013-05-30	Nicole Cordes <cordes@cps-it.de>
+2013-11-23         [RELEASE] Release of tipafriend_plus 0.2.0 (Nicole Cordes)
+2013-11-23 3d251fd [BUGFIX] Support for non-captchared recommendations (Nicole Cordes)
+2013-11-23 661dca4 [BUGFIX] Minor changes for TYPO3 6.2 support (Nicole Cordes)
 
-	* Added tipHash marker in form template for different url encoding methods
-
-2013-05-21	Nicole Cordes <cordes@cps-it.de>
-
-	* Added tipHash as security parameter to avoid XSS on links
-	* Fixed sending the recommendation to multiple receivers
-
-07-06-05   <>
-
-	* Initial release
+2013-05-31         [RELEASE] Release of tipafriend_plus 0.1.7 (Nicole Cordes)
+2013-05-31 661dca4 Added tipHash marker in form template for different url encoding methods (Nicole Cordes)
+2013-05-21 b89ecfa Fixed sending the recommendation to multiple receivers (Nicole Cordes)
+2013-05-21 f54ca20 Added tipHash as security parameter to avoid XSS on links (Nicole Cordes)
