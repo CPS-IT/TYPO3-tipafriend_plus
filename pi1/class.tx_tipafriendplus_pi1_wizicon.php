@@ -34,11 +34,10 @@ class tx_tipafriendplus_pi1_wizicon {
 	/**
 	 * Processing the wizard items array
 	 *
-	 * @param array $wizardItems: The wizard items
-	 *
+	 * @param array $wizardItems The wizard items
 	 * @return array Modified array with wizard items
 	 */
-	function proc($wizardItems) {
+	public function proc($wizardItems) {
 		$wizardItems['plugins_tx_tipafriendplus_pi1'] = array(
 			'icon' => t3lib_extMgm::extRelPath('tipafriend_plus') . 'pi1/ce_wiz.gif',
 			'title' => $GLOBALS['LANG']->sL('LLL:EXT:tipafriend_plus/locallang.xml:pi1_title'),

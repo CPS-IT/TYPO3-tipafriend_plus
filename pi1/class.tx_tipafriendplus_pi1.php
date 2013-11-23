@@ -36,67 +36,66 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 	 *
 	 * @var string
 	 */
-	var $prefixId = 'tx_tipafriendplus_pi1';
+	protected $prefixId = 'tx_tipafriendplus_pi1';
 
 	/**
 	 * Path to this script relative to the extension dir
 	 *
 	 * @var string
 	 */
-	var $scriptRelPath = 'pi1/class.tx_tipafriendplus_pi1.php';
+	protected $scriptRelPath = 'pi1/class.tx_tipafriendplus_pi1.php';
 
 	/**
 	 * The extension key
 	 *
 	 * @var string
 	 */
-	var $extKey = 'tipafriend_plus';
+	protected $extKey = 'tipafriend_plus';
 
 	/**
 	 * @var boolean
 	 */
-	var $pi_checkCHash = TRUE;
+	protected $pi_checkCHash = TRUE;
 
 	/**
 	 * @var array
 	 */
-	var $config = array();
+	protected $config = array();
 
 	/**
 	 * @var tx_srfreecap_pi2|NULL
 	 */
-	var $freeCap = NULL;
+	protected $freeCap = NULL;
 
 	/**
 	 * @var string
 	 */
-	var $hmacSalt = 'tipafriend_plus';
+	protected $hmacSalt = 'tipafriend_plus';
 
 	/**
 	 * @var array
 	 */
-	var $typolink_conf = array();
+	protected $typolink_conf = array();
 
 	/**
 	 * @var string
 	 */
-	var $templateCode = '';
+	protected $templateCode = '';
 
 	/**
 	 * @var string
 	 */
-	var $theCode = '';
+	protected $theCode = '';
 
 	/**
 	 * The main method of the PlugIn
 	 *
-	 * @param    string $content: The PlugIn content
-	 * @param    array $conf: The PlugIn configuration
-	 *
+	 * @param string $content The PlugIn content
+	 * @param array $conf The PlugIn configuration
 	 * @return string The content that is displayed on the website
 	 */
 
-	function main($content, $conf) {
+	public function main($content, $conf) {
 
 		// code inserted to use free Captcha
 		if (t3lib_extMgm::isLoaded('sr_freecap')) {
@@ -120,7 +119,7 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 
 		$flexform_code = $this->pi_getFFvalue($this->cObj->data['pi_flexform'], 'code_selector', 'sDEF');
 		if (count($flexform_code)) {
-			$codes = (array)$flexform_code;
+			$codes = (array) $flexform_code;
 		} else {
 			$codes = t3lib_div::trimExplode(',', $this->config['code'] ? $this->config['code'] : $this->conf['defaultCode'], 1);
 			if (!count($codes)) {
@@ -128,7 +127,7 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 			}
 		}
 		while (list(, $theCode) = each($codes)) {
-			$theCode = (string)strtoupper(trim($theCode));
+			$theCode = (string) strtoupper(trim($theCode));
 			$this->theCode = $theCode;
 			switch ($theCode) {
 				case 'TIPFORM':
@@ -163,11 +162,11 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 	 *
 	 * @return string
 	 */
-	function tipform() {
+	protected function tipform() {
 		$content = '';
 
 		$tipUrl = t3lib_div::_GP('tipUrl');
-		$tipHash = (string)t3lib_div::_GP('tipHash');
+		$tipHash = (string) t3lib_div::_GP('tipHash');
 		$calculatedHmac = t3lib_div::hmac($tipUrl, $this->hmacSalt);
 
 		if ($tipHash !== $calculatedHmac) {
@@ -293,10 +292,9 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 	 *
 	 * @param array $tipData
 	 * @param string $url
-	 *
 	 * @return boolean
 	 */
-	function validate($tipData, $url) {
+	protected function validate($tipData, $url) {
 
 		// Remove any tags from url
 		$url = strip_tags($url);
@@ -343,10 +341,9 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 	 * Returns only one receiver to avoid spam mails.
 	 *
 	 * @param string $emails
-	 *
 	 * @return string
 	 */
-	function getRecipients($emails) {
+	protected function getRecipients($emails) {
 		// Prevent sending this recommendation to multiple recipients
 		$emailArr = preg_split('/[,; ]/', $emails);
 
@@ -358,10 +355,9 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 	 *
 	 * @param array $tipData
 	 * @param string $url
-	 *
 	 * @return void
 	 */
-	function sendTip($tipData, $url) {
+	protected function sendTip($tipData, $url) {
 		// Get template
 		$subpart = $this->cObj->getSubpart($this->templateCode, '###TEMPLATE_EMAIL###');
 
@@ -433,7 +429,7 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 	 *
 	 * @return string
 	 */
-	function tiplink() {
+	protected function tiplink() {
 		$url = t3lib_div::getIndpEnv('TYPO3_REQUEST_URL');
 		$subpart = $this->cObj->getSubpart($this->templateCode, '###TEMPLATE_TIPLINK###');
 
