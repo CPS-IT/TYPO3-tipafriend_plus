@@ -303,9 +303,27 @@ class tx_tipafriendplus_pi1 extends tslib_pibase {
 		if (strstr($url, '"')) {
 			$url = FALSE;
 		}
-		// Check if the first part of the url is actually the server where tip-a-friend is installed. If not, unset $url.
-		if (!preg_match('#\A' . t3lib_div::getIndpEnv('TYPO3_SITE_URL') . '#', $url)) {
+		// Check if the host of the url is equal with current used one
+		$urlParts = parse_url($url);
+		if (empty($urlParts['host'])) {
 			$url = FALSE;
+		} elseif ($urlParts['host'] !== t3lib_div::getIndpEnv('TYPO3_HOST_ONLY')) {
+			// Compare with registered domains
+			$pidList = array(0);
+			foreach ($GLOBALS['TSFE']->rootLine as $item) {
+				$pidList[] = $item['uid'];
+			}
+			unset($item);
+
+			$count = $GLOBALS['TYPO3_DB']->exec_SELECTcountRows(
+				'*',
+				'sys_domain',
+				'domainName=' . $GLOBALS['TYPO3_DB']->fullQuoteStr($urlParts['host'], 'sys_domain') .
+					' AND pid IN (' . implode(',', $pidList) . ') AND hidden=0'
+			);
+			if (!$count) {
+				$url = FALSE;
+			}
 		}
 
 		$ret = TRUE;
