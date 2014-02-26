@@ -1,3 +1,6 @@
+2014-02-26         [RELEASE] Release of tipafriend_plus 0.3.0 (Nicole Cordes)
+2014-02-26 6f9d496 [BUGFIX] Allow different hosts as long as they are defined in BE (Nicole Cordes)
+
 2013-11-23         [RELEASE] Release of tipafriend_plus 0.2.1 (Nicole Cordes)
 2013-11-23 735b137 [TASK] Minor code changes (Nicole Cordes)
 2013-11-23 e9e8549 [TASK] Code improvements according to metrics.typo3.org (Nicole Cordes)
