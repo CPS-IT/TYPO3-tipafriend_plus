@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Tip-A-Friend Plus',
-	'description' => 'Send a tip (link to typo3-page) to somebody. Based on Tip-A-Friend.',
+	'description' => 'Obsolete - please do not use this extension any longer! Send a tip (link to typo3-page) to somebody. Based on Tip-A-Friend.',
 	'category' => 'plugin',
 	'shy' => 0,
 	'version' => '0.3.0',
@@ -21,7 +21,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'priority' => '',
 	'loadOrder' => '',
 	'module' => '',
-	'state' => 'stable',
+	'state' => 'obsolete',
 	'uploadfolder' => 0,
 	'createDirs' => '',
 	'modify_tables' => '',
